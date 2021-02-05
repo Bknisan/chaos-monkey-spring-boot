@@ -44,7 +44,9 @@
     <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
     <maven-source-plugin.version>3.2.0</maven-source-plugin.version>
     <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+    <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
+
 
     <!-- GitHub Server settings.xml -->
     <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -64,14 +66,15 @@
 
     <google-java-format.version>1.7</google-java-format.version>
     <spotless.plugin.version>2.6.1</spotless.plugin.version>
+
   </properties>
 
   <scm>
     <connection>
-      scm:git:git://github.com/codecentric/chaos-monkey-spring-boot.git
+      scm:git:https://github.com/codecentric/chaos-monkey-spring-boot.git
     </connection>
     <developerConnection>
-      scm:git:ssh://git@github.com/codecentric/chaos-monkey-spring-boot.git
+      scm:git:https://github.com/codecentric/chaos-monkey-spring-boot.git
     </developerConnection>
     <url>https://github.com/codecentric/chaos-monkey-spring-boot</url>
   </scm>
@@ -214,6 +217,14 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${maven-release-plugin.version}</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+        </configuration>
       </plugin>
     </plugins>
   </build>
